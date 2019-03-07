@@ -3,7 +3,7 @@ import "./App.css";
 import { Switch, Router } from "react-router-dom";
 import Home from "./components/Home";
 import Collections from "./components/Collections";
-import Signup from "./components/Signup";
+import Signup from "./components/auth/Signup";
 import axios from "axios";
 
 class App extends Component {
