@@ -10,7 +10,7 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/server", { useNewUrlParser: true })
+  .connect("mongodb://localhost/project3ironhack", { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -26,6 +26,15 @@ const debug = require("debug")(
 );
 
 const app = express();
+
+const cors = require("cors");
+
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"] // <== this will be the URL of our React app (it will be running on port 3000)
+  })
+);
 
 // Middleware Setup
 app.use(logger("dev"));
