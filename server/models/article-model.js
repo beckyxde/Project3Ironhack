@@ -5,7 +5,8 @@ const articleSchema = new Schema({
   title: String,
   image: File,
   timestamp: Date,
-  URL: String
+  URL: String,
+  collections: Array
 });
 
 const Article = mongoose.model('Article', articleSchema); //might need to add collection as a 3rd param?
