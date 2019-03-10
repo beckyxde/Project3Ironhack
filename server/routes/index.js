@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI(process.env.apiKey);
 
 const axios = require('axios');
 
@@ -39,6 +41,29 @@ const getHackerNewsNewArticles = () => {
     })
   })
 }
+
+//Using NewsAPI - largely works! Needs npm install newsapi --save (see https://newsapi.org/docs/client-libraries/node-js) - at the moment can't select the data from it
+// newsapi.v2.everything({
+//   q: ['javascript', 'ruby', 'kotlin', 'python', 'programming', 'ruby on rails', 'sql', 'PHP'],
+//   from: '2019-03-01',
+//   to: '2019-12-12',
+//   language: 'en',
+//   sortBy: 'relevancy',
+//   page: 2
+// }).then(response => {
+
+//   let i = undefined;
+//   response.articles.forEach(NAPIin => {
+//     i = (NAPIin - 1)
+//   });
+
+//   const news = {
+//     title: response.articles[i].title,
+//     url: response.articles[i].url,
+//   }
+//   console.log(news);
+// });
+
 
 /* GET home page */
 router.get('/', (req, res, next) => {
