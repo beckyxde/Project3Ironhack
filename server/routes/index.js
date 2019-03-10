@@ -42,7 +42,7 @@ const getHackerNewsNewArticles = () => {
   })
 }
 
-//Using NewsAPI - largely works!
+//Using NewsAPI - largely works! Needs npm install newsapi --save (see https://newsapi.org/docs/client-libraries/node-js) - at the moment can't select the data from it
 // newsapi.v2.everything({
 //   q: ['javascript', 'ruby', 'kotlin', 'python', 'programming', 'ruby on rails', 'sql', 'PHP'],
 //   from: '2019-03-01',
