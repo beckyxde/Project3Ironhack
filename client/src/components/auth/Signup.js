@@ -41,7 +41,7 @@ class Signup extends Component {
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" name="name" placeholder="Your Name" value={this.state.name} onChange={e => this.handleChange(e)} ></input>
           <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={e => this.handleChange(e)} ></input>
-          <input name="password" value={this.state.password} onChange={e => this.handleChange(e)} ></input>
+          <input name="password" placeholder="password" value={this.state.password} onChange={e => this.handleChange(e)} ></input>
           <button type="submit" name="submit">Submit!</button>
         </form>
       </div>
