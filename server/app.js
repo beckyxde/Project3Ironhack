@@ -2,13 +2,30 @@ require("dotenv").config();
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const express = require("express");
 const favicon = require("serve-favicon");
 const hbs = require("hbs");
-const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
+const express = require("express");
+const mongoose = require("mongoose");
+const passport = require("passport");
+
+//authorization of user
+app.use(
+  session({
+    secret: "some secret goes here",
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require("./configs/passport");
+
+//requiring mongodb
 mongoose
   .connect("mongodb://localhost/project3ironhack", { useNewUrlParser: true })
   .then(x => {
