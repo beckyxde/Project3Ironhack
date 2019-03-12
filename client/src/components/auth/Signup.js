@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 // import { Link } from 'react-router-dom';
 import Axios from 'axios';
+import { Redirect } from 'react-router-dom'
+
 
 class Signup extends Component {
   constructor(props) {
@@ -8,8 +10,20 @@ class Signup extends Component {
     this.state = {
       name: "",
       email: "",
-      password: ""
+      password: "",
+      redirect: false
     };
+  }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='./Home' />
+    }
   }
 
   handleFormSubmit = (event) => {
@@ -39,10 +53,11 @@ class Signup extends Component {
       <div>
         <h1>Signup</h1>
         <form onSubmit={this.handleFormSubmit}>
-          <input type="text" name="name" placeholder="Your Name" value={this.state.name} onChange={e => this.handleChange(e)} ></input>
-          <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={e => this.handleChange(e)} ></input>
+          {this.renderRedirect()}
+          <input type="text" name="name" placeholder="your name" value={this.state.name} onChange={e => this.handleChange(e)} ></input>
+          <input type="text" name="email" placeholder="email" value={this.state.email} onChange={e => this.handleChange(e)} ></input>
           <input name="password" placeholder="password" value={this.state.password} onChange={e => this.handleChange(e)} ></input>
-          <button type="submit" name="submit">Submit!</button>
+          <button type="submit" name="submit" onClick={this.setRedirect}>Submit!</button>
         </form>
       </div>
     )
