@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import { Link } from 'react-router-dom';
 import Axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
   constructor(props) {
@@ -12,6 +13,17 @@ class Signup extends Component {
       redirect: false
     };
   }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="./Home" />;
+    }
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -44,17 +56,18 @@ class Signup extends Component {
       <div>
         <h1>Signup</h1>
         <form onSubmit={this.handleFormSubmit}>
+          {this.renderRedirect()}
           <input
             type="text"
             name="name"
-            placeholder="Your Name"
+            placeholder="your name"
             value={this.state.name}
             onChange={e => this.handleChange(e)}
           />
           <input
             type="text"
             name="email"
-            placeholder="Email"
+            placeholder="email"
             value={this.state.email}
             onChange={e => this.handleChange(e)}
           />
@@ -64,7 +77,7 @@ class Signup extends Component {
             value={this.state.password}
             onChange={e => this.handleChange(e)}
           />
-          <button type="submit" name="submit">
+          <button type="submit" name="submit" onClick={this.setRedirect}>
             Submit!
           </button>
         </form>
