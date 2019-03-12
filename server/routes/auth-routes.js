@@ -3,7 +3,7 @@ const authRoutes = express.Router();
 
 const passport = require("passport");
 
-const User = require("../models/User");
+const User = require("../models/user-model");
 
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -18,24 +18,20 @@ authRoutes.post(
   })
 );
 
-authRoutes.get("/", (req, res, next) => {
-  res.render("auth/Signup");
-});
-
-authRoutes.post("/", (req, res, next) => {
-  const username = req.body.username;
+authRoutes.post("/signup", (req, res, next) => {
+  const email = req.body.email;
   const password = req.body.password;
   const name = req.body.name;
 
-  if (username === "" || password === "") {
-    res.render("auth/Signup", { message: "Indicate username and password" });
+  if (email === "" || password === "") {
+    res.render("auth/Signup", { message: "Indicate email and password" });
     return;
   }
 
-  User.findOne({ username })
+  User.findOne({ email })
     .then(user => {
       if (user !== null) {
-        res.render("auth/Signup", { message: "The username already exists" });
+        res.render("auth/Signup", { message: "The email already exists" });
         return;
       }
 
@@ -44,7 +40,7 @@ authRoutes.post("/", (req, res, next) => {
 
       const newUser = new User({
         name,
-        username,
+        email,
         password: hashPass
       });
 
