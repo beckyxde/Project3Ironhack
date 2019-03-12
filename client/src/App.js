@@ -30,7 +30,6 @@ class App extends Component {
             <Route path="/Collections" exact component={Collections} />
           </Switch>
         </div>
-      </div>
     );
   }
 }
