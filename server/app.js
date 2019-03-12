@@ -3,13 +3,14 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const favicon = require("serve-favicon");
-const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
 const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
+const app = express();
+const session = require("express-session");
 
 //authorization of user
 app.use(
@@ -41,8 +42,6 @@ const app_name = require("./package.json").name;
 const debug = require("debug")(
   `${app_name}:${path.basename(__filename).split(".")[0]}`
 );
-
-const app = express();
 
 const cors = require("cors");
 
