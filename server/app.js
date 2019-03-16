@@ -11,11 +11,13 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const app = express();
+// const ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
+
 
 //authorization of user
 app.use(
   session({
-    secret: "some secret goes here",
+    secret: "some very secret secret should be in these lines",
     resave: true,
     saveUninitialized: true
   })
