@@ -12,8 +12,6 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const app = express();
 
-const session = require("express-session");
-
 //authorization of user
 app.use(
   session({
