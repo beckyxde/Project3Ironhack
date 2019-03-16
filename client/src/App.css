@@ -13,6 +13,7 @@
 }
 
 .card {
+  /* display: inline-block; */
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -32,6 +33,12 @@
 
 .App-link {
   color: #61dafb;
+}
+.card-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 5px solid FFFDDF;
 }
 
 /*Search bar */
