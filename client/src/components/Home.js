@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 // import { Redirect } from "react-router-dom";
 import { CardGroup, Card } from "react-bootstrap";
+import onSubmit from "../components/Search";
 
 class Home extends Component {
   constructor(props) {
@@ -18,8 +19,10 @@ class Home extends Component {
     };
   }
 
-  getInfo = () => {
-    axios.get("http://localhost:5000/api/stories").then(res => {
+  getInfo = searchTerm => {
+    let url = `http://localhost:5000/api/stories`;
+    if (searchTerm) url = `http://localhost:5000/api/stories/${searchTerm}`;
+    axios.get(url).then(res => {
       this.setState({
         results: res.data
       });
@@ -40,7 +43,7 @@ class Home extends Component {
             </NavLink>
           </div>
           <div>
-            <Search />
+            <Search onSearch={this.getInfo} />
           </div>
         </header>
         <CardGroup>
