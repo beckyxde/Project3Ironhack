@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 // import Suggestions from "../components/Suggestions";
 // import Home from "../components/Home";
 // import getInfo from "../components/Home";

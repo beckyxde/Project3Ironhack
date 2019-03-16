@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 // import { Redirect } from "react-router-dom";
-import { CardGroup, Card } from "react-bootstrap";
-import onSubmit from "../components/Search";
+import { CardGroup, Card, Row, Col } from "react-bootstrap";
+// import onSubmit from "../components/Search";
 
 class Home extends Component {
   constructor(props) {
@@ -42,47 +42,34 @@ class Home extends Component {
               Collections
             </NavLink>
           </div>
-          <div>
-            <Search onSearch={this.getInfo} />
-          </div>
         </header>
-        <CardGroup>
-          {this.state.results.map((result, i) => {
-            return (
-              <div className="card" key={i}>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>{result.title}</Card.Title>
-                    <br />
-                    <Card.Text>{this.text}</Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <small className="text-muted" />
-                  </Card.Footer>
-                </Card>
-              </div>
-            );
-          })}
 
-          {/* <Card>
-            <Card.Body>
-              <Card.Title>{this.title}</Card.Title>
-              <Card.Text>{this.text}</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Body>
-              <Card.Title>{this.title}</Card.Title>
-              <Card.Text>{this.text}</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
-          </Card> */}
-        </CardGroup>
+        <div>
+          <Search onSearch={this.getInfo} />
+        </div>
+
+        <div className="box">
+          <CardGroup>
+            {this.state.results.map((result, i) => {
+              return (
+                <div className="card" key={i}>
+                  <Card>
+                    <Card.Body>
+                      <Row>
+                        <Card.Title>{result.title}</Card.Title>
+                        <br />
+                        <Card.Text>{this.text}</Card.Text>
+                      </Row>
+                    </Card.Body>
+                    <Card.Footer>
+                      <small className="text-muted" />
+                    </Card.Footer>
+                  </Card>
+                </div>
+              );
+            })}
+          </CardGroup>
+        </div>
       </div>
     );
   }
