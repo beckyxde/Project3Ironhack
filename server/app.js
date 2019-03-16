@@ -11,11 +11,13 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const app = express();
+// const ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
+
 
 //authorization of user
 app.use(
   session({
-    secret: "some secret goes here",
+    secret: "some very secret secret should be in these lines",
     resave: true,
     saveUninitialized: true
   })
@@ -37,6 +39,11 @@ mongoose
   .catch(err => {
     console.error("Error connecting to mongo", err);
   });
+
+const app_name = require("./package.json").name;
+const debug = require("debug")(
+  `${app_name}:${path.basename(__filename).split(".")[0]}`
+);
 
 const cors = require("cors");
 

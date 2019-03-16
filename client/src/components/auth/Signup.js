@@ -10,20 +10,8 @@ class Signup extends Component {
       name: "",
       email: "",
       password: "",
-      redirect: false
     };
   }
-
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    });
-  };
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to="./Home" />;
-    }
-  };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -32,9 +20,7 @@ class Signup extends Component {
     const name = this.state.name;
 
     Axios.post("http://localhost:5000/api/signup", {
-      name: name,
-      email: email,
-      password: password
+      email, password, name
     })
       .then(response => {
         this.setState({
@@ -42,6 +28,7 @@ class Signup extends Component {
           email: "",
           password: ""
         });
+        this.props.history.push("/Home")
       })
       .catch(error => console.log(error));
   };
@@ -56,7 +43,6 @@ class Signup extends Component {
       <div>
         <h1>Signup</h1>
         <form onSubmit={this.handleFormSubmit}>
-          {this.renderRedirect()}
           <input
             type="text"
             name="name"
@@ -77,7 +63,7 @@ class Signup extends Component {
             value={this.state.password}
             onChange={e => this.handleChange(e)}
           />
-          <button type="submit" name="submit" onClick={this.setRedirect}>
+          <button type="submit" name="submit" >
             Submit!
           </button>
         </form>

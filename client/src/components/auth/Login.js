@@ -1,35 +1,30 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { Redirect } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: "",
-      redirect: false
+      password: ""
     };
   }
-
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    });
-  };
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to="./Home" />;
-    };
-  };
 
   handleFormSubmit = event => {
     event.preventDefault();
     const email = this.state.email;
     const password = this.state.password;
-  }
 
-  Axios.
+    Axios.post("http://localhost:5000/api/login", {
+      email,
+      password
+    }).then((response) => {
+      console.log("logged in", response)
+      this.props.history.push("/Home")
+
+    })
+      .catch(error => console.log(error));
+  }
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -41,7 +36,6 @@ class Login extends Component {
       <div>
         <h1>Login</h1>
         <form onSubmit={this.handleFormSubmit}>
-          {this.renderRedirect()}
           <input
             type="text"
             name="email"
@@ -55,7 +49,7 @@ class Login extends Component {
             value={this.state.password}
             onChange={e => this.handleChange(e)}
           />
-          <button type="submit" name="submit" onClick={this.setRedirect}>
+          <button type="submit" name="submit">
             Login!
           </button>
         </form>
@@ -63,3 +57,5 @@ class Login extends Component {
     );
   }
 }
+
+export default Login;
