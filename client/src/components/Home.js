@@ -44,9 +44,9 @@ class Home extends Component {
           </div>
         </header>
         <CardGroup>
-          {this.state.results.map(result => {
+          {this.state.results.map((result, i) => {
             return (
-              <div class="card">
+              <div className="card" key={i}>
                 <Card>
                   <Card.Body>
                     <Card.Title>{result.title}</Card.Title>

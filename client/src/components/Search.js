@@ -21,6 +21,13 @@ class Search extends Component {
       });
   };
 
+  handleForm = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.query.data);
+    e.currentTarget.reset();
+    // console.log("form handled");
+  };
+
   handleInputChange = () => {
     this.setState(
       {
@@ -39,15 +46,16 @@ class Search extends Component {
   render() {
     return (
       <form
+        onSubmit={this.handleForm}
         action=""
-        autocomplete="off"
-        class="form-horizontal"
+        autoComplete="off"
+        className="form-horizontal"
         method="post"
-        accept-charset="utf-8"
-        width="500px"
+        acceptCharset="utf-8"
+        width="300px"
         height="350px"
       >
-        <div class="input-group">
+        <div className="input-group">
           <input
             type="text"
             placeholder="Search for..."
@@ -55,11 +63,11 @@ class Search extends Component {
             onChange={this.handleInputChange}
           />
           <Suggestions results={this.state.results} />
-          <span class="input-group-btn">
+          <span className="input-group-btn">
             <button
               type="submit"
-              class="btn btn-search"
-              onClick={this.state.results}
+              className="btn btn-search"
+              // onClick={this.state.results}
             >
               Search
             </button>
