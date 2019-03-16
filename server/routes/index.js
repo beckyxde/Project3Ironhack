@@ -1,46 +1,63 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI(process.env.apiKey);
+//const NewsAPI = require("newsapi");
+//const newsapi = new NewsAPI(process.env.apiKey);
 
-const axios = require('axios');
+const axios = require("axios");
 
 const getHackerNewsNewArticles = () => {
+  return axios
+    .get(`https://hacker-news.firebaseio.com/v0/newstories.json`)
+    .then(res => {
+      const urlArr = [];
 
-  axios.get(`https://hacker-news.firebaseio.com/v0/newstories.json`).then((res) => {
+      res.data.slice(0, 4).forEach(hnID => {
+        urlArr.push(`https://hacker-news.firebaseio.com/v0/item/${hnID}.json`);
+      });
 
-    const urlArr = []
+      const searchTerms = [
+        "java",
+        "object",
+        "js",
+        "python",
+        "ruby",
+        "sql",
+        "kotlin",
+        "programming",
+        "e"
+      ];
 
-    res.data.slice(0, 400).forEach(hnID => {
-      urlArr.push(`https://hacker-news.firebaseio.com/v0/item/${hnID}.json`)
-    });
-
-    const searchTerms = ["java", "object", "js", "python", "ruby", "sql", "kotlin", "programming"]
-
-    urlArr.forEach((url) => {
-      axios.get(url).then((response) => {
-
-        let containsTerm = undefined;
-        for (let i = 0; i < searchTerms.length; i++) {
-          containsTerm = response.data.title.toLowerCase().includes(searchTerms[i])
-          if (containsTerm) break;
-        };
-
-        if (response.data.type === "story"
-          && response.data.url !== undefined
-          && containsTerm
-        ) {
-          const article = {
-            title: response.data.title,
-            url: response.data.url,
-            date: response.data.time
+      const requests = urlArr.map(url => {
+        return axios.get(url).then(response => {
+          let containsTerm = undefined;
+          for (let i = 0; i < searchTerms.length; i++) {
+            containsTerm = response.data.title
+              .toLowerCase()
+              .includes(searchTerms[i]);
+            if (containsTerm) break;
           }
-          console.log("item details response.data", article)
-        }
-      })
-    })
-  })
-}
+
+          if (
+            response.data.type === "story" &&
+            response.data.url !== undefined &&
+            containsTerm
+          ) {
+            const article = {
+              title: response.data.title,
+              url: response.data.url,
+              date: response.data.time
+            };
+            console.log(article);
+            return article;
+          } else {
+            return null;
+          }
+        });
+      });
+
+      return Promise.all(requests);
+    });
+};
 
 //Using NewsAPI - largely works! Needs npm install newsapi --save (see https://newsapi.org/docs/client-libraries/node-js) - at the moment can't select the data from it
 // newsapi.v2.everything({
@@ -64,11 +81,12 @@ const getHackerNewsNewArticles = () => {
 //   console.log(news);
 // });
 
-
 /* GET home page */
-router.get('/', (req, res, next) => {
-  getHackerNewsNewArticles()
-  res.send()
+router.get("/api/stories", (req, res, next) => {
+  getHackerNewsNewArticles().then(articles => {
+    console.log("test", articles);
+    res.json(articles.filter(a => a !== null));
+  });
 });
 
 module.exports = router;
