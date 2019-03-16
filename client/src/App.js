@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 // import { NavLink } from "react-router-dom";
 // import axios from "axios";
 
-import Signup from "./components/auth/Signup";
+import LandingPage from "./components/auth/LandingPage";
 import Home from "./components/Home";
 import Collections from "./components/Collections";
 
@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
         <div>
           <Switch>
-            <Route path="/" exact component={Signup} />
+            <Route path="/" exact component={LandingPage} />
             <Route path="/Home" exact component={Home} />
             <Route path="/Collections" exact component={Collections} />
           </Switch>

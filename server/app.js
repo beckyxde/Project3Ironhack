@@ -7,9 +7,11 @@ const logger = require("morgan");
 const path = require("path");
 
 const express = require("express");
+const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const app = express();
+
 const session = require("express-session");
 
 //authorization of user
@@ -78,5 +80,7 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 const index = require("./routes/index");
 app.use("/", index);
+const authRoutes = require("./routes/auth-routes");
+app.use("/api", authRoutes);
 
 module.exports = app;
