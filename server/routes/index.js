@@ -89,4 +89,11 @@ router.get("/api/stories", (req, res, next) => {
   });
 });
 
+router.get("/user/collections", (req, res, next) => {
+  res.json([
+    { name: "ruby", articles: [123, 234, 345] }
+  ])
+  // res.json(req.user.collections)
+})
+
 module.exports = router;
