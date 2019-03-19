@@ -13,7 +13,6 @@ const passport = require("passport");
 const app = express();
 // const ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
 
-
 //authorization of user
 app.use(
   session({

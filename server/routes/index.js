@@ -5,27 +5,30 @@ const router = express.Router();
 
 const axios = require("axios");
 
-const getHackerNewsNewArticles = () => {
+const getHackerNewsNewArticles = searchTerm => {
   return axios
     .get(`https://hacker-news.firebaseio.com/v0/newstories.json`)
     .then(res => {
       const urlArr = [];
 
-      res.data.slice(0, 4).forEach(hnID => {
+      res.data.slice(0, 100).forEach(hnID => {
         urlArr.push(`https://hacker-news.firebaseio.com/v0/item/${hnID}.json`);
       });
 
-      const searchTerms = [
-        "java",
-        "object",
-        "js",
-        "python",
-        "ruby",
-        "sql",
-        "kotlin",
-        "programming",
-        "e"
-      ];
+      let searchTerms = [""];
+      if (searchTerm) searchTerms = [searchTerm];
+
+      // this is being done programmatically now
+      // const searchTerms = [
+      //   "java",
+      //   "object",
+      //   "js",
+      //   "python",
+      //   "ruby",
+      //   "sql",
+      //   "kotlin",
+      //   "programming"
+      // ];
 
       const requests = urlArr.map(url => {
         return axios.get(url).then(response => {
@@ -89,11 +92,19 @@ router.get("/api/stories", (req, res, next) => {
   });
 });
 
+
+router.get("/api/stories/:searchTerm", (req, res, next) => {
+  getHackerNewsNewArticles(req.params.searchTerm).then(articles => {
+    console.log("test", articles);
+    res.json(articles.filter(a => a !== null));
+  });
+});
+
 router.get("/user/collections", (req, res, next) => {
   res.json([
     { name: "ruby", articles: [123, 234, 345] }
   ])
   // res.json(req.user.collections)
-})
+});
 
 module.exports = router;
