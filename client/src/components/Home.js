@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 // import { MDBCol, MDBIcon } from "mdbreact";
 import Search from "./Search";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 // import { Redirect } from "react-router-dom";
-import { CardGroup, Card, Row, Col } from "react-bootstrap";
+import {
+  CardGroup,
+  Card,
+  Row,
+  CardColumns,
+  ButtonGroup,
+  ButtonToolbar,
+  Button
+} from "react-bootstrap";
 // import onSubmit from "../components/Search";
 
 class Home extends Component {
@@ -38,38 +46,54 @@ class Home extends Component {
       <div className="home">
         <header>
           <div className="NavBar">
-            <NavLink to="/Collections" exact>
-              Collections
-            </NavLink>
+            <ul>
+              <a href="/Collections">Collections</a>
+              <br />
+              <a href="/">Logout</a>
+            </ul>
           </div>
         </header>
 
         <div>
           <Search onSearch={this.getInfo} />
         </div>
-
-        <div className="box">
-          <CardGroup>
-            {this.state.results.map((result, i) => {
-              return (
-                <div className="card" key={i}>
-                  <Card>
-                    <Card.Body>
-                      <Row>
-                        <Card.Title>{result.title}</Card.Title>
-                        <br />
-                        <Card.Text>{this.text}</Card.Text>
-                      </Row>
-                    </Card.Body>
-                    <Card.Footer>
-                      <small className="text-muted" />
-                    </Card.Footer>
-                  </Card>
+        {/* <div className="card-group"> */}
+        {/* <CardColumns className="col-lg-12">
+          {this.state.results.map((result, i) => {
+            console.log(result);
+            return (
+              <Card>
+                <Card.Title>{result.title}</Card.Title>
+                <Card.Text>{result.title}</Card.Text>
+                <ButtonToolbar className="justify-content-between">
+                  <button type="redirect">Like</button>
+                  <button type="redirect">Open{this.url}</button>
+                </ButtonToolbar>
+              </Card>
+            );
+          })}
+        </CardColumns> */}
+        <div className="card-group-local">
+          {this.state.results.map((result, i) => {
+            console.log(result);
+            return (
+              <div className="card-local" key={i}>
+                <div className="card-title-local">
+                  <h4>{result.title}</h4>
                 </div>
-              );
-            })}
-          </CardGroup>
+                <br />
+                <div className="card-text-local">
+                  <p>{result.title}</p>
+                </div>
+                <div className="card-footer-local">
+                  <button type="redirect">Like</button>
+                  {/* <button type="redirect">Open</button> */}
+                </div>
+              </div>
+            );
+          })}
         </div>
+        {/* </div> */}
       </div>
     );
   }
