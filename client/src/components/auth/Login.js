@@ -18,13 +18,13 @@ class Login extends Component {
     Axios.post("http://localhost:5000/api/login", {
       email,
       password
-    }).then((response) => {
-      console.log("logged in", response)
-      this.props.history.push("/Home")
-
     })
-      .catch(error => console.log(error));
-  }
+      .then(response => {
+        console.log("logged in", response);
+        this.props.history.push("/Home");
+      })
+      .catch(error => console.log(error.response));
+  };
 
   handleChange = event => {
     const { name, value } = event.target;
