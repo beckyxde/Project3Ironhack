@@ -5,18 +5,80 @@ const router = express.Router();
 
 const axios = require("axios");
 
+const getUrls = stories => {
+  const urlArr = [];
+
+  stories.data.slice(0, 200).forEach(hnID => {
+    urlArr.push(`https://hacker-news.firebaseio.com/v0/item/${hnID}.json`);
+  });
+
+  return urlArr;
+}
+
+const getStory = (url, term) => {
+  const response = axios.get(url).then(response => {
+    let containsTerm = undefined;
+    let searchTerms = ["java",
+      "object-orientated",
+      "js ",
+      "python",
+      "haskell",
+      "swift",
+      "ruby",
+      "sql",
+      "kotlin",
+      "programming",
+      "software"
+    ];
+    if (term) searchTerms = [term];
+
+    for (let i = 0; i < searchTerms.length; i++) {
+      containsTerm = response.data.title
+        .toLowerCase()
+        .includes(searchTerms[i]);
+      if (containsTerm) break;
+    }
+
+    if (
+      response.data.type === "story" &&
+      response.data.url !== undefined &&
+      containsTerm
+    ) {
+      const article = {
+        title: response.data.title,
+        url: response.data.url,
+        date: response.data.time,
+        text: response.data.text,
+        id: response.data.id
+      };
+      // console.log("ARTICLEEEEEEE", article)
+      return article;
+    }
+    else {
+      return null;
+    }
+  }).catch(error => console.log('error', 'error'));
+
+  return response;
+}
+
 const getHackerNewsNewArticles = searchTerm => {
   return axios
     .get(`https://hacker-news.firebaseio.com/v0/newstories.json`)
     .then(res => {
-      const urlArr = [];
-
-      res.data.slice(0, 100).forEach(hnID => {
-        urlArr.push(`https://hacker-news.firebaseio.com/v0/item/${hnID}.json`);
-      });
-
-      let searchTerms = [""];
-      if (searchTerm) searchTerms = [searchTerm];
+      // let searchTerms = ["java",
+      //   "object-orientated",
+      //   "js ",
+      //   "python",
+      //   "haskell",
+      //   "swift",
+      //   "ruby",
+      //   "sql",
+      //   "kotlin",
+      //   "programming",
+      //   "software"
+      // ];
+      // if (searchTerm) searchTerms = [searchTerm];
 
       // this is being done programmatically now
       // const searchTerms = [
@@ -30,35 +92,42 @@ const getHackerNewsNewArticles = searchTerm => {
       //   "programming"
       // ];
 
-      const requests = urlArr.map(url => {
-        return axios.get(url).then(response => {
-          let containsTerm = undefined;
-          for (let i = 0; i < searchTerms.length; i++) {
-            containsTerm = response.data.title
-              .toLowerCase()
-              .includes(searchTerms[i]);
-            if (containsTerm) break;
-          }
-
-          if (
-            response.data.type === "story" &&
-            response.data.url !== undefined &&
-            containsTerm
-          ) {
-            const article = {
-              title: response.data.title,
-              url: response.data.url,
-              date: response.data.time
-            };
-            console.log(article);
-            return article;
-          } else {
-            return null;
-          }
-        });
-      });
+      const stroriesArray = getUrls(res);
+      const requests = stroriesArray.map(url => getStory(url, searchTerm));
 
       return Promise.all(requests);
+
+      // const requests = stroriesArray.map(url => {
+      //   return axios.get(url).then(response => {
+      //     let containsTerm = undefined;
+      //     for (let i = 0; i < searchTerms.length; i++) {
+      //       containsTerm = response.data.title
+      //         .toLowerCase()
+      //         .includes(searchTerms[i]);
+      //       if (containsTerm) break;
+      //     }
+      //     if (
+      //       response.data.type === "story" &&
+      //       response.data.url !== undefined &&
+      //       containsTerm
+      //     ) {
+      //       const article = {
+      //         title: response.data.title,
+      //         url: response.data.url,
+      //         date: response.data.time,
+      //         text: response.data.text,
+      //         id: response.data.id
+      //       };
+      //       console.log("ARTICLEEEEEEE", article)
+      //       return article;
+      //     }
+      //     else {
+      //       return null;
+      //     }
+      //   }).catch(error => console.log('error', error));
+      // });
+
+      // return Promise.all(requests);
     });
 };
 
@@ -85,10 +154,15 @@ const getHackerNewsNewArticles = searchTerm => {
 // });
 
 /* GET home page */
+
+// router.get("/asd", (req, res, next) => {
+//   res.json("I'm rendering!")
+// });
+
 router.get("/api/stories", (req, res, next) => {
   getHackerNewsNewArticles().then(articles => {
     console.log("test", articles);
-    res.json(articles.filter(a => a !== null));
+    return res.json(articles.filter(a => a !== null));
   });
 });
 
