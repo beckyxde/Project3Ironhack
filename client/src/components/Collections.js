@@ -14,7 +14,7 @@ export default class Collections extends Component {
 
     Axios.get("http://localhost:5000/user/collections")
       .then(response => {
-        console.log("response", response)
+        // console.log("response", response)
         this.setState({
           collections: response.data
         });
@@ -36,6 +36,8 @@ export default class Collections extends Component {
             <h1>Collections</h1>
             <div className="folderGroup">
               {this.state.collections.map((collection, i) => {
+                console.log("coleeeeeectionsdata", collection)
+
                 return (
                   <div className="singleFolder" key={i}>
                     {collection.name}
