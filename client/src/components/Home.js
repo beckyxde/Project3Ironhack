@@ -1,38 +1,42 @@
 import React, { Component } from "react";
 // import { MDBCol, MDBIcon } from "mdbreact";
 import Search from "./Search";
+import Card from "./Card";
 // import { NavLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 // import { Redirect } from "react-router-dom";
-import {
-  CardGroup,
-  Card,
-  Row,
-  CardColumns,
-  ButtonGroup,
-  ButtonToolbar,
-  Button
-} from "react-bootstrap";
-// import onSubmit from "../components/Search";
+// import {
+//   CardGroup,
+//   Card,
+//   Row,
+//   CardColumns,
+//   ButtonGroup,
+//   ButtonToolbar,
+//   Button
+// } from "react-bootstrap";
+// // import onSubmit from "../components/Search";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      text: [],
-      results: []
+
+      results: [],
+
+
       // redirect: false
     };
   }
 
-  getInfo = searchTerm => {
+  getInfo = (searchTerm) => {
+
     let url = `http://localhost:5000/api/stories`;
     if (searchTerm) url = `http://localhost:5000/api/stories/${searchTerm}`;
     axios.get(url).then(res => {
       this.setState({
         results: res.data
+
       });
     });
   };
@@ -42,8 +46,10 @@ class Home extends Component {
   }
 
   render() {
+
     return (
       <div className="home">
+
         <header>
           <div className="NavBar">
             <ul>
@@ -56,6 +62,12 @@ class Home extends Component {
 
         <div>
           <Search onSearch={this.getInfo} />
+        </div>
+
+        <Card mirResult={this.state.results} />
+
+        <div>
+
         </div>
         {/* <div className="card-group"> */}
         {/* <CardColumns className="col-lg-12">
@@ -73,7 +85,7 @@ class Home extends Component {
             );
           })}
         </CardColumns> */}
-        <div className="card-group-local">
+        {/* <div className="card-group-local">
           {this.state.results.map((result, i) => {
             console.log(result);
             return (
@@ -87,12 +99,12 @@ class Home extends Component {
                 </div>
                 <div className="card-footer-local">
                   <button type="redirect">Like</button>
-                  {/* <button type="redirect">Open</button> */}
+                  <button type="redirect">Open</button>
                 </div>
               </div>
             );
           })}
-        </div>
+        </div> */}
         {/* </div> */}
       </div>
     );
