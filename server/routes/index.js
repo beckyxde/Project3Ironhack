@@ -8,14 +8,14 @@ const axios = require("axios");
 const getUrls = stories => {
   const urlArr = [];
 
-  stories.data.slice(0, 200).forEach(hnID => {
+  stories.data.slice(0, 800).forEach(hnID => {
     urlArr.push(`https://hacker-news.firebaseio.com/v0/item/${hnID}.json`);
   });
 
   return urlArr;
 }
 
-const getStory = (url, term) => {
+const getStory = (url, searchTerm) => {
   const response = axios.get(url).then(response => {
     let containsTerm = undefined;
     let searchTerms = ["java",
@@ -30,7 +30,7 @@ const getStory = (url, term) => {
       "programming",
       "software"
     ];
-    if (term) searchTerms = [term];
+    if (searchTerm) searchTerms = [searchTerm];
 
     for (let i = 0; i < searchTerms.length; i++) {
       containsTerm = response.data.title

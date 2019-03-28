@@ -26,6 +26,7 @@ class Search extends Component {
   // };
 
   handleInputChange = e => {
+
     this.setState({
       searchTerm: e.target.value
     });
@@ -44,7 +45,8 @@ class Search extends Component {
   };
 
   render() {
-    console.log(this.state.results);
+    console.log("this.props", this.props)
+    // console.log(this.state.results);
     return (
       <form
         onSubmit={this.handleForm}
