@@ -10,7 +10,39 @@
 
 .collections {
   height: 100vh;
-  background-image: url("./images/ManReading.jpg");
+  background-color: rgb(255, 253, 223);
+}
+
+.NavBar {
+  background-color: white;
+  padding: 0;
+  margin: 0px 20px;
+
+  text-align: right;
+  list-style: none;
+
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 5em;
+}
+
+#logo {
+  float: left;
+  display: inline-block;
+}
+
+.h2 {
+  opacity: 100;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(255, 227, 223);
+}
+
+.SearchBar {
+  text-align: center;
 }
 
 .App-header {
@@ -25,10 +57,7 @@
 }
 
 .App-link {
-  color: #61dafb;
-}
-.h1 {
-  opacity: 100;
+  color: rgb(255, 227, 223);
 }
 
 .card-group-local {
@@ -46,13 +75,10 @@
 .card-local {
   align-items: center;
   text-align: center;
-  /* justify-content: center; */
   height: 100%;
   min-height: 280px;
   width: 20vw;
   background-image: url("./images/news-icon.jpg");
-  /* opacity: 0.5; */
-  /* z-index: -1; */
   background: rgba(255, 249, 192, 0.7);
   background-color: white;
   background-size: 180px;
@@ -70,23 +96,3 @@
   /* justify-content: space-between; */
 }
 /*Search bar */
-
-.NavBar {
-  text-align: right;
-  list-style-type: none;
-  padding: 0;
-  margin: 0px 20px;
-  color: #fff;
-  font-size: 12px;
-  text-transform: uppercase;
-  background-image: url("./images/logo_transparent.png");
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

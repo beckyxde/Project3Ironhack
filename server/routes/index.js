@@ -92,7 +92,6 @@ router.get("/api/stories", (req, res, next) => {
   });
 });
 
-
 router.get("/api/stories/:searchTerm", (req, res, next) => {
   getHackerNewsNewArticles(req.params.searchTerm).then(articles => {
     console.log("test", articles);
@@ -101,9 +100,7 @@ router.get("/api/stories/:searchTerm", (req, res, next) => {
 });
 
 router.get("/user/collections", (req, res, next) => {
-  res.json([
-    { name: "ruby", articles: [123, 234, 345] }
-  ])
+  res.json([{ name: "BLAHHHBLUEBLEEPP", articles: [123, 234, 345] }]);
   // res.json(req.user.collections)
 });
 

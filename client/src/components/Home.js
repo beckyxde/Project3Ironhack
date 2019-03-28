@@ -4,24 +4,23 @@ import Search from "./Search";
 // import { NavLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 // import { Redirect } from "react-router-dom";
-import {
-  CardGroup,
-  Card,
-  Row,
-  CardColumns,
-  ButtonGroup,
-  ButtonToolbar,
-  Button
-} from "react-bootstrap";
+// import {
+//   CardGroup,
+//   Card,
+//   Row,
+//   CardColumns,
+//   ButtonGroup,
+//   ButtonToolbar,
+//   Button
+// } from "react-bootstrap";
 // import onSubmit from "../components/Search";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      text: [],
       results: []
       // redirect: false
     };
@@ -47,14 +46,18 @@ class Home extends Component {
         <header>
           <div className="NavBar">
             <ul>
-              <a href="/Collections">Collections</a>
-              <br />
-              <a href="/">Logout</a>
+              <li>{/* <img src="./images/DD.png" id="logo" /> */}</li>
+              <NavLink to="/Collections" exact>
+                Collections
+              </NavLink>
+              <NavLink to="/" exact>
+                Logout
+              </NavLink>
             </ul>
           </div>
         </header>
 
-        <div>
+        <div class="SearchBar">
           <Search onSearch={this.getInfo} />
         </div>
         {/* <div className="card-group"> */}
