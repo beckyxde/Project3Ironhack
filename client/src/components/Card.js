@@ -54,7 +54,6 @@ export default class Card extends Component {
               <div className="card-title-local">
                 <h4>{result.title}</h4>
               </div>
-              <br />
               <span className="card-footer-local">
                 <button type="redirect" onClick={this.saveArticle}>
                   Like

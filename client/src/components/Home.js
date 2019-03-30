@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { MDBCol, MDBIcon } from "mdbreact";
 import Search from "./Search";
 import Card from "./Card";
+import Footer from "./Footer";
 // import { NavLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import axios from "axios";
@@ -45,8 +46,7 @@ class Home extends Component {
         </div>
 
         <Card mirResult={this.state.results} />
-
-        <div />
+        <Footer />
       </div>
     );
   }

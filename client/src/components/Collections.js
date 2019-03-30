@@ -3,6 +3,9 @@ import { NavLink } from "react-router-dom";
 import Axios from "axios";
 // import Navbar from "./components/Navbar";
 
+import CollectionFolder from "./CollectionFolder";
+import Footer from "./Footer";
+
 export default class Collections extends Component {
   constructor(props) {
     super(props);
@@ -28,27 +31,18 @@ export default class Collections extends Component {
   render() {
     return (
       <div className="collections">
-        {/* <div className="NavBar">
-            <NavLink to="/Home" exact>
-              Home
-            </NavLink>
-          </div> */}
-        <div>
-          <h1>Collections</h1>
-          <div className="folderGroup">
-            {this.state.collections.map((collection, i) => {
-              console.log("coleeeeeectionsdata", collection);
-
-              return (
-                <div className="singleFolder" key={i}>
-                  {collection.name}
-                </div>
-              );
-            })}
-            ;
-          </div>{" "}
-          {/* this is like a button */}
+        <div className="NavBar">
+          <NavLink to="/Home" exact>
+            Home
+          </NavLink>
         </div>
+
+        <div>
+          <h1>Collections</h1>\
+        </div>
+        <CollectionFolder userCollections={this.state.collections} />
+
+        <Footer />
       </div>
     );
   }
