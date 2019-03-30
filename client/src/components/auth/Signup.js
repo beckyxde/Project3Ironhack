@@ -19,8 +19,8 @@ class Signup extends Component {
     const name = this.state.name;
 
     Axios.post(
-      (process.env.REACT_APP_API_URL || "http://localhost:5000/api") +
-        "/signup",
+      (process.env.REACT_APP_API_URL || "http://localhost:5000") +
+        "/api/signup",
       {
         email,
         password,

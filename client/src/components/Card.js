@@ -33,7 +33,9 @@ export default class Card extends Component {
 
   saveArticle = event => {
     event.preventDefault();
-    Axios.post(process.env.REACT_APP_API_URL || "http://localhost:5000/api");
+    Axios.post(
+      (process.env.REACT_APP_API_URL || "http://localhost:5000") + "/api"
+    );
   };
 
   openArticleTab() {

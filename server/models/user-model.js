@@ -1,21 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Collection = require('../models/collection-model');
 
 const userSchema = new Schema(
   {
     name: String,
     email: String,
     password: String,
-    collections: {
-      type: Array, default: [
-        {
-          "Favorites": [9486025, 19485442]
-        },
-        {
-          "four": [19485376]
-        }
-      ]
-    }
+    collections: [{ type: Schema.Types.ObjectId, ref: 'Collection' }]
   },
   {
     timestamps: true,
