@@ -58,7 +58,8 @@ const getStory = (url, searchTerm) => {
     else {
       return null;
     }
-  }).catch(error => console.log('error', error));
+  }).catch(error => console.log('error'));
+  //NEVER CONSOLE LOG THE ACTUAL ERROR HACKERNEWS FUCKING HATES IT
 
   return response;
 }

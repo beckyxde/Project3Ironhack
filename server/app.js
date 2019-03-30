@@ -11,7 +11,6 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const app = express();
-const MongoStore = require("connect-mongo")(session);
 // const ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
 
 //authorization of user
