@@ -25,13 +25,17 @@ router.post("/add-collection", (req, res, next) => {
   if (req.isAuthenticated()) {
 
     // create collection
-    const newCollection = new Collection({ title: "Favourites" }).save().then((collection) => {
-      return newCollection
+    const collection = new Collection({ title: "Favourites" }).save().then((collection) => {
+      return res.json(collection)
+    }).catch(error => {
+      return res.status(403).json({ message: "Some error with collections" })
     });
     // take _id of collection
+    collection_id = collection.findById(req.collection.id)
+
     // update user with $addtoset + _id of collection.
 
-    User.findByIdAndUpdate(req.user._id, { $addToSet: { collections: req.body.collection } })
+    User.findByIdAndUpdate(req.user._id, { $addToSet: { collections: [req.body.collection] } })
       .then(user => {
         return res.json(user)
       }).catch(error => {

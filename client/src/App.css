@@ -32,11 +32,6 @@ button:hover {
   width: 100%;
 }
 
-.collections {
-  height: 100vh;
-  background-image: url("./images/ManReading.jpg");
-}
-
 .NavBar {
   text-align: right;
   list-style-type: none;
