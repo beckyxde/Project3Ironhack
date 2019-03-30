@@ -7,6 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import LandingPage from "./components/auth/LandingPage";
 import Home from "./components/Home";
 import Collections from "./components/Collections";
+import InUserFolder from "./components/InUserFolder";
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path="/" exact component={LandingPage} />
             <Route path="/Home" exact component={Home} />
             <Route path="/Collections" exact component={Collections} />
+            <Route path="/UserFolder" exact component={InUserFolder} />
           </Switch>
         </div>
       </div>
