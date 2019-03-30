@@ -38,7 +38,7 @@ export default class Collections extends Component {
         <div>
           <h1>Collections</h1>\
           </div>
-        <CollectionFolder />
+        <CollectionFolder userCollections={this.state.collections} />
 
         <Footer />
       </div>

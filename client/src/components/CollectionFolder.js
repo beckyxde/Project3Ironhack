@@ -4,24 +4,19 @@ export default class CollectionFolder extends Component {
   render() {
     return (
       <div className="folder-group">
-        <div className="single-folder">
-          <div className="folder-icon"></div>
-          <p>I am a Folder</p>
-        </div>
+        {this.props.userCollections.map((collection, i) => {
+          console.log("coleeeeeectionsdata", collection)
+          return (
+            <div>
+              <div className="singleFolder" key={i}>
+                {collection.name}
+              </div>
+              <p>I am a Folder - Click me to get inside</p>
+            </div>
+          )
+        })
+        }
       </div>
     )
-    // <div className="folderGroup">
-    //         {this.state.collections.map((collection, i) => {
-    //           console.log("coleeeeeectionsdata", collection)
-
-    //           return (
-    //             <div className="singleFolder" key={i}>
-    //               {collection.name}
-    //             </div>
-    //           )
-    //         })}
-    //         ;
-    //         </div> {/* this is like a button */}
-    //     </div>
-  }
+  };
 };

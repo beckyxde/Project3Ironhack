@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const User = require('../models/user-model');
 //const NewsAPI = require("newsapi");
 //const newsapi = new NewsAPI(process.env.apiKey);
 
@@ -173,6 +174,16 @@ router.get("/api/stories/:searchTerm", (req, res, next) => {
     res.json(articles.filter(a => a !== null));
   });
 });
+
+// adding liked articles to user collections favourites folder
+router.post("/user/collections", (req, res, next) => {
+  User.update(
+    { _id: req.user._id },
+    { addToSet: { name: req.body.eventId } }
+  ).then(x => {
+    console.log("xxxxxxxxxxxxx", x);
+  });
+})
 
 router.get("/user/collections", (req, res, next) => {
   res.json([
