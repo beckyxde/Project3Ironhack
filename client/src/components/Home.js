@@ -32,8 +32,8 @@ class Home extends Component {
 
   getInfo = (searchTerm) => {
 
-    let url = (process.env.REACT_APP_API_URL || "http://localhost:5000/") + "/api/stories";
-    if (searchTerm) url = ((process.env.REACT_APP_API_URL || "http://localhost:5000/api") + `/api/stories/${searchTerm}`);
+    let url = (process.env.REACT_APP_API_URL || "http://localhost:5000") + "/api/stories";
+    if (searchTerm) url = ((process.env.REACT_APP_API_URL || "http://localhost:5000") + `/api/stories/${searchTerm}`);
     axios.get(url).then(res => {
       this.setState({
         results: res.data
