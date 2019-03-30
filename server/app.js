@@ -11,6 +11,7 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const app = express();
+const MongoStore = require("connect-mongo")(session);
 // const ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
 
 //authorization of user
@@ -29,7 +30,9 @@ require("./configs/passport");
 
 //requiring mongodb
 mongoose
-  .connect("mongodb://localhost/project3ironhack", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/project3ironhack", {
+    useNewUrlParser: true
+  })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -81,5 +84,10 @@ const index = require("./routes/index");
 app.use("/", index);
 const authRoutes = require("./routes/auth-routes");
 app.use("/api", authRoutes);
+
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 module.exports = app;

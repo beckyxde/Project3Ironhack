@@ -3,15 +3,15 @@ body {
 }
 
 h4 {
-font-size: 16px;
+  font-size: 16px;
 }
 
 button {
   margin: 10px;
-  background-color: #FFFDDF !important; 
+  background-color: #fffddf !important;
   border-radius: 5px;
   padding: 5px 10px 5px 10px;
-  font-family: 'Courier', 'monospace';
+  font-family: "Courier", "monospace";
 }
 
 .App {
@@ -26,6 +26,20 @@ button {
 .collections {
   height: 100vh;
   background-image: url("./images/ManReading.jpg");
+}
+
+.NavBar {
+  text-align: right;
+  list-style-type: none;
+  padding: 0;
+  margin: 0px 20px;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.brand-logo {
+  align: left;
 }
 
 .App-header {
@@ -44,7 +58,7 @@ button {
 }
 
 .card-group-local {
-  background-color: #FFFDDF;
+  background-color: #fffddf;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -59,9 +73,9 @@ button {
   margin: 1%;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px RGBA(140,140,140,1);
+  box-shadow: 0px 0px 10px RGBA(140, 140, 140, 1);
 }
-.card-local:hover{ 
+.card-local:hover {
   width: 16%;
 }
 
@@ -258,40 +272,29 @@ h1 {
   /* align-items: center;
   text-align: center;
   /* justify-content: center; */
-  /* height: 100%;
+/* height: 100%;
   min-height: 280px;
   width: 20vw;
   background-image: url("./images/news-icon.jpg"); */
-  /* opacity: 0.5; */
-  /* z-index: -1; */
-  /* background: rgba(255, 249, 192, 0.7);
+/* opacity: 0.5; */
+/* z-index: -1; */
+/* background: rgba(255, 249, 192, 0.7);
   background-color: white;
   background-size: 180px; */
-  /* padding: 5px;
+/* padding: 5px;
   margin: 10px 5px 5px 10px;
   border: 1px solid gray; */
-  /* border-radius: 25px; */
-  /* box-shadow: 3px 3px 10px grey; */
+/* border-radius: 25px; */
+/* box-shadow: 3px 3px 10px grey; */
 /* }
 
 /* .card-footer-local { */
-  /* display: flex;
+/* display: flex;
   align-self: flex-end;
   background-color: black; */
-  /* justify-content: space-between; */
+/* justify-content: space-between; */
 /* }
 /* Search bar */
-
-.NavBar {
-  text-align: right;
-  list-style-type: none;
-  padding: 0;
-  margin: 0px 20px;
-  color: #fff;
-  font-size: 12px;
-  text-transform: uppercase;
-  background-image: url("./images/logo_transparent.png");
-}
 
 @keyframes App-logo-spin {
   from {

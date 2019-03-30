@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Axios from "axios";
+// import Navbar from "./components/Navbar";
 
 export default class Collections extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collections: []  // not sure how to reference user in DB
-    }
+      collections: [] // not sure how to reference user in DB
+    };
   }
 
   componentDidMount() {
-
-    Axios.get("http://localhost:5000/user/collections")
+    Axios.get(
+      (process.env.REACT_APP_API_URL || "http://localhost:5000") +
+        "/user/collections"
+    )
       .then(response => {
         // console.log("response", response)
         this.setState({
@@ -20,35 +23,33 @@ export default class Collections extends Component {
         });
       })
       .catch(error => console.log(error));
-  };
-
+  }
 
   render() {
     return (
       <div className="collections">
-        <header>
-          <div className="NavBar">
+        {/* <div className="NavBar">
             <NavLink to="/Home" exact>
               Home
-          </NavLink>
-          </div>
-          <div>
-            <h1>Collections</h1>
-            <div className="folderGroup">
-              {this.state.collections.map((collection, i) => {
-                console.log("coleeeeeectionsdata", collection)
+            </NavLink>
+          </div> */}
+        <div>
+          <h1>Collections</h1>
+          <div className="folderGroup">
+            {this.state.collections.map((collection, i) => {
+              console.log("coleeeeeectionsdata", collection);
 
-                return (
-                  <div className="singleFolder" key={i}>
-                    {collection.name}
-                  </div>
-                )
-              })}
-              ;
-            </div> {/* this is like a button */}
-          </div>
-        </header>
+              return (
+                <div className="singleFolder" key={i}>
+                  {collection.name}
+                </div>
+              );
+            })}
+            ;
+          </div>{" "}
+          {/* this is like a button */}
+        </div>
       </div>
     );
-  };
-};
+  }
+}

@@ -8,7 +8,7 @@ class Signup extends Component {
     this.state = {
       name: "",
       email: "",
-      password: "",
+      password: ""
     };
   }
 
@@ -18,16 +18,22 @@ class Signup extends Component {
     const password = this.state.password;
     const name = this.state.name;
 
-    Axios.post("http://localhost:5000/api/signup", {
-      email, password, name
-    })
+    Axios.post(
+      (process.env.REACT_APP_API_URL || "http://localhost:5000/api") +
+        "/signup",
+      {
+        email,
+        password,
+        name
+      }
+    )
       .then(response => {
         this.setState({
           name: "",
           email: "",
           password: ""
         });
-        this.props.history.push("/Home")
+        this.props.history.push("/Home");
       })
       .catch(error => console.log(error));
   };
@@ -62,7 +68,7 @@ class Signup extends Component {
             value={this.state.password}
             onChange={e => this.handleChange(e)}
           />
-          <button type="submit" name="submit" >
+          <button type="submit" name="submit">
             Submit!
           </button>
         </form>
