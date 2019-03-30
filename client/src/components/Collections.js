@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import Axios from "axios";
-// import Navbar from "./components/Navbar";
+import Navbar from "./Navbar";
 
 import CollectionFolder from "./CollectionFolder";
 import Footer from "./Footer";
@@ -31,12 +30,7 @@ export default class Collections extends Component {
   render() {
     return (
       <div className="collections">
-        <div className="NavBar">
-          <NavLink to="/Home" exact>
-            Home
-          </NavLink>
-        </div>
-
+        <Navbar />
         <div>
           <h1>Collections</h1>\
         </div>

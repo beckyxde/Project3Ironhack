@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import Search from "./Search";
 import Card from "./Card";
 import Footer from "./Footer";
-// import { NavLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import axios from "axios";
+import Navbar from "./Navbar";
 // import { Redirect } from "react-router-dom";
 // // import onSubmit from "../components/Search";
 
@@ -41,6 +41,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
+        <Navbar />
         <div>
           <Search onSearch={this.getInfo} />
         </div>

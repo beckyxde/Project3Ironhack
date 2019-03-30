@@ -32,23 +32,22 @@ button:hover {
   width: 100%;
 }
 
-.collections {
-  height: 100vh;
-  background-image: url("./images/ManReading.jpg");
-}
-
 .NavBar {
   text-align: right;
-  list-style-type: none;
-  padding: 0;
+  padding: 10px;
   margin: 0px 20px;
-  color: #fff;
   font-size: 12px;
   text-transform: uppercase;
 }
 
+.NavBar a {
+  padding: 10px;
+}
+
 .brand-logo {
-  align: left;
+  background-image: url("./images/logo_transparent.png");
+  width: 50px;
+  height: 100%;
 }
 
 .App-header {

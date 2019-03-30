@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import Footer from './Footer';
+import React, { Component } from "react";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 export default class InUserFolder extends Component {
   render() {
     return (
       <div>
-        {/* <NavBar /> */}
+        <Navbar />
 
-        <p>Results inside the folder
+        <p>
+          Results inside the folder
           <br /> call from API by id
         </p>
         <Footer />
       </div>
-    )
+    );
     // <div className="folderGroup">
     //         {this.state.collections.map((collection, i) => {
     //           console.log("coleeeeeectionsdata", collection)
@@ -27,4 +29,4 @@ export default class InUserFolder extends Component {
     //         </div> {/* this is like a button */}
     //     </div>
   }
-};
+}
