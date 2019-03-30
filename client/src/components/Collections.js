@@ -15,7 +15,7 @@ export default class Collections extends Component {
 
   componentDidMount() {
 
-    Axios.get("http://localhost:5000/user/collections")
+    Axios.get((process.env.REACT_APP_API_URL || "http://localhost:5000") + "/user/collections")
       .then(response => {
         // console.log("response", response)
         this.setState({

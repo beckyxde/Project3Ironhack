@@ -15,7 +15,7 @@ class Login extends Component {
     const email = this.state.email;
     const password = this.state.password;
 
-    Axios.post("http://localhost:5000/api/login", {
+    Axios.post((process.env.REACT_APP_API_URL || "http://localhost:5000/api") + "/login", {
       email,
       password
     })

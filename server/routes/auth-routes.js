@@ -4,7 +4,7 @@ const authRoutes = express.Router();
 const passport = require("passport");
 
 const User = require("../models/user-model");
-
+const Collection = require("../models/collection-model");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
@@ -37,8 +37,11 @@ authRoutes.post("/signup", (req, res, next) => {
       }
       const salt = bcrypt.genSaltSync(bcryptSalt)
       const hashPass = bcrypt.hashSync(password, salt)
-      const newUser = new User({ email, password: hashPass, name })
-      return newUser.save()
+      const newCollection = new Collection({ title: "Favourites" }).save().then((collection) => {
+        const newUser = new User({ email, password: hashPass, name, collections: [collection._id] })
+        return newUser.save()
+      })
+      return newCollection
     })
     .then(userSaved => {
       // LOG IN THIS USER
@@ -74,7 +77,6 @@ authRoutes.post('/login', (req, res, next) => {
         res.status(500).json({ message: 'Session save went bad.' });
         return;
       }
-
       // We are now logged in (that's why we can also send req.user)
       res.status(200).json(theUser);
     });

@@ -81,5 +81,6 @@ const index = require("./routes/index");
 app.use("/", index);
 const authRoutes = require("./routes/auth-routes");
 app.use("/api", authRoutes);
-
+const collections = require("./routes/collections");
+app.use("/collections", collections);
 module.exports = app;
