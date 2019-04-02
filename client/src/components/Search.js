@@ -26,7 +26,6 @@ class Search extends Component {
   // };
 
   handleInputChange = e => {
-
     this.setState({
       searchTerm: e.target.value
     });
@@ -45,7 +44,7 @@ class Search extends Component {
   };
 
   render() {
-    console.log("this.props", this.props)
+    console.log("this.props", this.props);
     // console.log(this.state.results);
     return (
       <form
@@ -61,6 +60,7 @@ class Search extends Component {
       >
         <div className="input-group">
           <input
+            className="search-input"
             type="text"
             placeholder="Search for..."
             ref={input => (this.search = input)}

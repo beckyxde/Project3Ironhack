@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 
 export default class Card extends Component {
   constructor(props) {
@@ -57,11 +58,18 @@ export default class Card extends Component {
                 <h4>{result.title}</h4>
               </div>
               <span className="card-footer-local">
-                <button type="redirect" onClick={this.saveArticle}>
-                  Like
-                </button>
-              </span>
-              <span className="card-footer-local">
+                <DropdownButton id="dropdown-basic-button" title="Like">
+                  <Dropdown.Item
+                    onClick={this.saveArticle /*.collections.favorites*/}
+                  >
+                    Favorites
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={this.saveArticle /*.collections.politics*/}
+                  >
+                    Save For Later
+                  </Dropdown.Item>
+                </DropdownButton>
                 <button target="_blank" onClick={this.openArticleTab}>
                   Go To
                 </button>
@@ -69,7 +77,6 @@ export default class Card extends Component {
             </div>
           ) : null;
         })}
-        ;
       </div>
     );
   }

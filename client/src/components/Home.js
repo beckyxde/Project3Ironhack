@@ -5,7 +5,7 @@ import Card from "./Card";
 import Footer from "./Footer";
 // import { Link } from "react-router-dom";
 import axios from "axios";
-import Navbar from "./Navbar";
+import Navbar2 from "./Navbar";
 // import { Redirect } from "react-router-dom";
 // // import onSubmit from "../components/Search";
 
@@ -41,7 +41,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <Navbar />
+        <Navbar2 />
         <div>
           <Search onSearch={this.getInfo} />
         </div>

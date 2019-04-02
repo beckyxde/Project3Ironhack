@@ -1,15 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+// import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar2 = () => {
   return (
-    <nav className="nav-wrapper white darken-3">
-      <Link to="/Home" className="brand-logo" />
-      <img
-        className="logo"
-        src="../images/logo_transparent.png"
-        alt="meaningful text"
-      />
+    <Navbar bg="white" variant="white">
+      <Navbar.Brand href="#home">
+        <img
+          alt=""
+          src="img/NewsIcon.png"
+          width="50px"
+          height="100%"
+          className="d-inline-block align-top"
+        />
+        {/* <h4>Digital Digest</h4> */}
+      </Navbar.Brand>
       <div className="NavBar">
         <ul>
           <a href="/Home">Home</a>
@@ -17,8 +22,8 @@ const Navbar = () => {
           <a href="/">Logout</a>
         </ul>
       </div>
-    </nav>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default Navbar2;
