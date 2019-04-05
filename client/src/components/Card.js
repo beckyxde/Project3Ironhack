@@ -15,23 +15,6 @@ export default class Card extends Component {
     };
   }
 
-  // getInfo = (searchTerm) => {
-  //   let url = `http://localhost:5000/api/stories`;
-  //   if (searchTerm) url = `http://localhost:5000/api/stories/${searchTerm}`;
-  //   Axios.get(url).then(res => {
-  //     console.log("line 21", res);
-
-  //     this.setState({
-  //       results: res.data
-  //     });
-  //   });
-  // };
-
-  // componentDidMount() {
-  //   this.getInfo();
-  //   /* console.log(this.state.results) */
-  // }
-
   saveArticle = event => {
     event.preventDefault();
     Axios.post(
@@ -39,11 +22,11 @@ export default class Card extends Component {
     );
   };
 
-  openArticleTab() {
-    let url = "www.google.com";
-    // let url = this.state.results.map((result, i) => { return url = result.url })
-    window.open(url, "_blank");
-  }
+  // openArticleTab() {
+  //   let url = "www.google.com";
+  //   // let url = this.state.results.map((result, i) => { return url = result.url })
+  //   window.open(url, "_blank");
+  // }
 
   render() {
     // console.log(this.state.results)
@@ -70,7 +53,13 @@ export default class Card extends Component {
                     Save For Later
                   </Dropdown.Item>
                 </DropdownButton>
-                <button target="_blank" onClick={this.openArticleTab}>
+                <button
+                  // target="redirect"
+                  // onClick={this.openArticleTab}
+                  onClick={() => {
+                    window.open(result.url, "_blank");
+                  }}
+                >
                   Go To
                 </button>
               </span>

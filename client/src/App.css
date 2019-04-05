@@ -47,6 +47,10 @@ button:hover {
   background-color: #fffeee !important;
 }
 
+.btn-search {
+  margin: 5px 10px;
+}
+
 .dropdown-menu-show {
   display: block;
   font-size: small;
@@ -100,6 +104,13 @@ button:hover {
   height: 35px;
 }
 
+.App-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 35px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -112,11 +123,11 @@ button:hover {
 }
 
 .App-link {
-  color: #61dafb;
+  color: black;
 }
 
 .card-group-local {
-  padding: 20px;
+  padding: 10px;
   background-color: #fffddf;
   border-radius: 50px;
   border: 2px solid rgb(255, 227, 223);
@@ -172,15 +183,16 @@ button:hover {
   font-weight: 700;
   text-decoration: underline;
 }
+.imprint-credits {
+  text-align: right;
+  list-style: none;
+  font-size: 12px;
+}
+.credits {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .folder-group {
   background-color: #fffddf;
-} /* Search bar */
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

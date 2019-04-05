@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar2 = () => {
   return (
@@ -9,17 +9,18 @@ const Navbar2 = () => {
         <img
           alt=""
           src="img/NewsIcon.png"
-          width="50px"
+          width="80px"
           height="100%"
           className="d-inline-block align-top"
+          href="/Home"
         />
         {/* <h4>Digital Digest</h4> */}
       </Navbar.Brand>
       <div className="NavBar">
         <ul>
-          <a href="/Home">Home</a>
-          <a href="/Collections">Collections</a>
-          <a href="/">Logout</a>
+          <Link to="/Home">Home</Link>
+          <Link to="/Collections">Collections</Link>
+          <Link to="/">Logout</Link>
         </ul>
       </div>
     </Navbar>

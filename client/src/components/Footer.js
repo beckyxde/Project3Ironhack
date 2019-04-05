@@ -21,6 +21,13 @@ export default class Footer extends Component {
             <br />
             Don't contact me
           </p>
+          <p className="imprint-credits">
+            <span className="credits">Credits:</span>
+            <br />
+            Liska Crofts
+            <br />
+            Rebecca Ingram
+          </p>
         </div>
       </div>
     );

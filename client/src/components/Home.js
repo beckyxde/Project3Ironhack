@@ -45,6 +45,7 @@ class Home extends Component {
         <div>
           <Search onSearch={this.getInfo} />
         </div>
+        <br />
 
         <Card mirResult={this.state.results} />
         <Footer />
