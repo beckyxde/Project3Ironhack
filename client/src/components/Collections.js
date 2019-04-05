@@ -9,7 +9,11 @@ export default class Collections extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collections: [] // not sure how to reference user in DB
+      collections: [
+        // favorites: [],
+        // politics: [],
+        // later:[]
+      ] // not sure how to reference user in DB
     };
   }
 

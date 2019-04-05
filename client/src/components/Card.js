@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 
 export default class Card extends Component {
   constructor(props) {
@@ -14,23 +15,6 @@ export default class Card extends Component {
     };
   }
 
-  // getInfo = (searchTerm) => {
-  //   let url = `http://localhost:5000/api/stories`;
-  //   if (searchTerm) url = `http://localhost:5000/api/stories/${searchTerm}`;
-  //   Axios.get(url).then(res => {
-  //     console.log("line 21", res);
-
-  //     this.setState({
-  //       results: res.data
-  //     });
-  //   });
-  // };
-
-  // componentDidMount() {
-  //   this.getInfo();
-  //   /* console.log(this.state.results) */
-  // }
-
   saveArticle = event => {
     event.preventDefault();
     Axios.post(
@@ -38,11 +22,11 @@ export default class Card extends Component {
     );
   };
 
-  openArticleTab() {
-    let url = "www.google.com";
-    // let url = this.state.results.map((result, i) => { return url = result.url })
-    window.open(url, "_blank");
-  }
+  // openArticleTab() {
+  //   let url = "www.google.com";
+  //   // let url = this.state.results.map((result, i) => { return url = result.url })
+  //   window.open(url, "_blank");
+  // }
 
   render() {
     // console.log(this.state.results)
@@ -57,19 +41,31 @@ export default class Card extends Component {
                 <h4>{result.title}</h4>
               </div>
               <span className="card-footer-local">
-                <button type="redirect" onClick={this.saveArticle}>
-                  Like
-                </button>
-              </span>
-              <span className="card-footer-local">
-                <button target="_blank" onClick={this.openArticleTab}>
+                <DropdownButton id="dropdown-basic-button" title="Like">
+                  <Dropdown.Item
+                    onClick={this.saveArticle /*.collections.favorites*/}
+                  >
+                    Favorites
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={this.saveArticle /*.collections.politics*/}
+                  >
+                    Save For Later
+                  </Dropdown.Item>
+                </DropdownButton>
+                <button
+                  // target="redirect"
+                  // onClick={this.openArticleTab}
+                  onClick={() => {
+                    window.open(result.url, "_blank");
+                  }}
+                >
                   Go To
                 </button>
               </span>
             </div>
           ) : null;
         })}
-        ;
       </div>
     );
   }
