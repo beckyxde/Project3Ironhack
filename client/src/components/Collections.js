@@ -20,7 +20,7 @@ export default class Collections extends Component {
   componentDidMount() {
     Axios.get(
       (process.env.REACT_APP_API_URL || "http://localhost:5000") +
-      "/user/collections"
+        "/user/collections"
     )
       .then(response => {
         // console.log("response", response)
@@ -39,18 +39,26 @@ export default class Collections extends Component {
           <h1>Collections</h1>
 
           <div className="favouritesFolder">
-            <Link to="InUserFolder"><img className="newspaper-icon" src="img/folderfolderfolder.png" alt="I am a newspaper icon"></img> </Link>
+            <Link to="InUserFolder">
+              <img
+                className="newspaper-icon"
+                src="img/folderfolderfolder.png"
+                alt="I am a newspaper icon"
+              />{" "}
+            </Link>
             <div>Favourites</div>
           </div>
 
           <div className="favouritesFolder">
-            <img className="newspaper-icon" src="img/folderfolderfolder.png" alt="I am a newspaper icon"></img>
+            <img
+              className="newspaper-icon"
+              src="img/folderfolderfolder.png"
+              alt="I am a newspaper icon"
+            />
             <div>Save for later :D</div>
           </div>
-
         </div>
         <CollectionFolder userCollections={this.state.collections} />
-
       </div>
     );
   }
