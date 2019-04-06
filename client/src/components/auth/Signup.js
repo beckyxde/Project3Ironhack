@@ -20,7 +20,7 @@ class Signup extends Component {
 
     Axios.post(
       (process.env.REACT_APP_API_URL || "http://localhost:5000") +
-        "/api/signup",
+      "/api/signup",
       {
         email,
         password,
@@ -45,7 +45,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
+      <div className="signupDiv">
         <h1>Signup</h1>
         <form onSubmit={this.handleFormSubmit}>
           <input

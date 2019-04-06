@@ -7,11 +7,15 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        <div className="auth-body">
-          <Signup history={this.props.history} />
-          <Login history={this.props.history} />
+        <div className="signupLogin">
+          <div className="auth-body">
+
+            <Signup history={this.props.history} />
+
+            <Login history={this.props.history} />
+
+          </div>
         </div>
-        {/* <Footer /> */}
       </div>
     );
   }

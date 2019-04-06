@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
+import Footer from "../src/components/Footer";
 // import { NavLink } from "react-router-dom";
 // import axios from "axios";
 
@@ -21,6 +22,8 @@ class App extends Component {
             <Route path="/UserFolder" exact component={InUserFolder} />
           </Switch>
         </div>
+
+        <Footer />
       </div>
     );
   }

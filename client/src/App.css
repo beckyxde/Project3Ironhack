@@ -19,10 +19,19 @@ a:hover {
   background-color: rgb(255, 227, 223) !important;
 }
 
+p {
+  margin-bottom: 2rem;
+}
+
 .dropdown-basic-button {
+  text-decoration: none;
   border-radius: 30px;
   border: 2px solid rgb(255, 227, 223);
-  font: black;
+  color: black;
+}
+
+.dropdown-toggle.btn.btn-primary {
+  color: black;
 }
 
 button {
@@ -91,6 +100,34 @@ button:hover {
   padding: 10px;
 }
 
+.signupLogin {
+  display: block;
+  float: left;
+  background-color: aquamarine;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+
+.auth-body {
+  display: block;
+  background-color: #fffddf;
+  border: 2px solid rgb(255, 227, 223);
+  border-radius: 30px;
+  padding: 20px;
+  position: absolute;
+  transform: translateY(-50%) translateX(-50%);
+  top: 50%; 
+  left: 50%; 
+}
+
+.signupDiv {
+  padding: 20px;
+}
+
+.loginDiv {
+  padding: 20px;
+}
+
 .input-group {
   display: flex;
   justify-content: center;
@@ -104,7 +141,7 @@ button:hover {
   height: 35px;
 }
 
-.App-content {
+.App-content:not(Footer) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,15 +204,21 @@ button:hover {
 .footer-body {
   background-color: #ffffff;
   box-shadow: 0px 0px 10px RGBA(140, 140, 140, 0.3);
+  width: -webkit-fill-available;
+  position: relative;
+  bottom: 0%;
+  margin-top: 30px;
 }
 
 .footer-contents {
   background-color: #ffffff;
   padding: 10px 18%;
+  height: 200px;
 }
 
 .imprint {
-  text-align: left;
+  display: inline-block;
+  float: left;
   list-style: none;
   font-size: 12px;
 }
@@ -184,13 +227,20 @@ button:hover {
   text-decoration: underline;
 }
 .imprint-credits {
-  text-align: right;
+  display: inline;
+  float: right;
   list-style: none;
   font-size: 12px;
 }
 .credits {
   font-weight: 700;
   text-decoration: underline;
+}
+
+.collections {
+  display: block;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
 }
 
 .folder-group {

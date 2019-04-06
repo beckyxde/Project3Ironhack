@@ -48,7 +48,6 @@ class Home extends Component {
         <br />
 
         <Card mirResult={this.state.results} />
-        <Footer />
       </div>
     );
   }
