@@ -15,18 +15,5 @@ export default class InUserFolder extends Component {
         <Footer />
       </div>
     );
-    // <div className="folderGroup">
-    //         {this.state.collections.map((collection, i) => {
-    //           console.log("coleeeeeectionsdata", collection)
-
-    //           return (
-    //             <div className="singleFolder" key={i}>
-    //               {collection.name}
-    //             </div>
-    //           )
-    //         })}
-    //         ;
-    //         </div> {/* this is like a button */}
-    //     </div>
   }
 }

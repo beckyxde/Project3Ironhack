@@ -12,10 +12,11 @@ const Navbar2 = () => {
           width="80px"
           height="100%"
           className="d-inline-block align-top"
-          href="/Home"
         />
-        {/* <h4>Digital Digest</h4> */}
       </Navbar.Brand>
+      <div className="typewriter">
+        <div className="typewriter-text">Digital Digest.</div>
+      </div>
       <div className="NavBar">
         <ul>
           <Link to="/Home">Home</Link>
