@@ -283,8 +283,18 @@ button:hover {
   height: -webkit-fill-available;
 }
 
+.favouritesFolder {
+  display: inline-block;
+}
+
+
+.newspaper-icon:hover {
+  background-color: #fff !important;
+}
+
 .newspaper-icon {
   width: 200px;
+  padding: 30px 30px 10px 30px;
 }
 
 .folder-group {

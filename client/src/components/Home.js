@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import { MDBCol, MDBIcon } from "mdbreact";
 import Search from "./Search";
 import Card from "./Card";
-import Footer from "./Footer";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar2 from "./Navbar";

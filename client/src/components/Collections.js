@@ -3,7 +3,7 @@ import Axios from "axios";
 import Navbar from "./Navbar";
 
 import CollectionFolder from "./CollectionFolder";
-import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 export default class Collections extends Component {
   constructor(props) {
@@ -39,13 +39,13 @@ export default class Collections extends Component {
           <h1>Collections</h1>
 
           <div className="favouritesFolder">
-            <img className="newspaper-icon" src="img/NewsIcon.png" alt="I am a newspaper icon"></img>
+            <Link to="InUserFolder"><img className="newspaper-icon" src="img/folderfolderfolder.png" alt="I am a newspaper icon"></img> </Link>
             <div>Favourites</div>
           </div>
 
           <div className="favouritesFolder">
-            <img className="newspaper-icon" src="img/NewsIcon.png" alt="I am a newspaper icon"></img>
-            <div>Favourites</div>
+            <img className="newspaper-icon" src="img/folderfolderfolder.png" alt="I am a newspaper icon"></img>
+            <div>Save for later :D</div>
           </div>
 
         </div>
