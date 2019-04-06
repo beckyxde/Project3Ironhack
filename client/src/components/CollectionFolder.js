@@ -28,7 +28,7 @@ export default class CollectionFolder extends Component {
 
               <div className="favouritesFolder">
                 <img className="newspaper-icon" src="img/folderfolder.png" alt="I am a newspaper icon"></img>
-                <div>Add Collection 😃</div>
+                <div>+ Collection 😃</div>
               </div>
             </div>
 
