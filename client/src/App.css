@@ -62,7 +62,6 @@ a:hover {
 p {
   margin-bottom: 2rem;
   margin-top: 2rem;
-
 }
 
 .dropdown-basic-button {
@@ -159,8 +158,8 @@ button:hover {
   padding: 20px;
   position: absolute;
   transform: translateY(-50%) translateX(-50%);
-  top: 50%; 
-  left: 50%; 
+  top: 50%;
+  left: 50%;
 }
 
 .signupDiv {
@@ -184,7 +183,7 @@ button:hover {
   height: 35px;
 }
 
-.App-content:not(Footer) {
+.App-content:not(footer) {
   display: flex;
   justify-content: center;
   align-items: center;
