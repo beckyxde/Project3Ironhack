@@ -253,7 +253,7 @@ button:hover {
 .footer-contents {
   background-color: #ffffff;
   padding: 10px 18%;
-  height: 200px;
+  height: 250px;
 }
 
 .imprint {
@@ -281,6 +281,10 @@ button:hover {
   display: block;
   width: -webkit-fill-available;
   height: -webkit-fill-available;
+}
+
+.newspaper-icon {
+  width: 200px;
 }
 
 .folder-group {
