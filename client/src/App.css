@@ -152,6 +152,7 @@ button:hover {
 
 .auth-body {
   display: block;
+  width: 600px;
   background-color: #fffddf;
   border: 2px solid rgb(255, 227, 223);
   border-radius: 30px;
