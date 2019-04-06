@@ -1,18 +1,16 @@
 import React, { Component } from "react";
-import Footer from "./Footer";
 import Navbar2 from "./Navbar";
 
 export default class InUserFolder extends Component {
   render() {
     return (
-      <div>
+      <div className="inUserFolder">
         <Navbar2 />
 
+        <h1>Saved Articles "(Woot woot)"</h1>
         <p>
-          Results inside the folder
-          <br /> call from API by id
+          Results inside the folder 😃
         </p>
-        <Footer />
       </div>
     );
   }

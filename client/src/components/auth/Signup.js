@@ -55,6 +55,7 @@ class Signup extends Component {
             value={this.state.name}
             onChange={e => this.handleChange(e)}
           />
+          <br />
           <input
             type="text"
             name="email"
@@ -62,17 +63,19 @@ class Signup extends Component {
             value={this.state.email}
             onChange={e => this.handleChange(e)}
           />
+          <br />
           <input
             name="password"
             placeholder="password"
             value={this.state.password}
             onChange={e => this.handleChange(e)}
           />
+          <br />
           <button type="submit" name="submit">
             Submit!
           </button>
         </form>
-      </div>
+      </div >
     );
   }
 }

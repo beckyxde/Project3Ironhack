@@ -37,17 +37,6 @@ export default class Collections extends Component {
         <Navbar />
         <div>
           <h1>Collections</h1>
-
-          <div className="favouritesFolder">
-            <Link to="InUserFolder"><img className="newspaper-icon" src="img/folderfolderfolder.png" alt="I am a newspaper icon"></img> </Link>
-            <div>Favourites</div>
-          </div>
-
-          <div className="favouritesFolder">
-            <img className="newspaper-icon" src="img/folderfolderfolder.png" alt="I am a newspaper icon"></img>
-            <div>Save for later :D</div>
-          </div>
-
         </div>
         <CollectionFolder userCollections={this.state.collections} />
 

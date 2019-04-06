@@ -61,6 +61,8 @@ a:hover {
 
 p {
   margin-bottom: 2rem;
+  margin-top: 2rem;
+
 }
 
 .dropdown-basic-button {
@@ -294,9 +296,14 @@ button:hover {
 
 .newspaper-icon {
   width: 200px;
-  padding: 30px 30px 10px 30px;
+  padding: 10px 30px 10px 30px;
 }
 
 .folder-group {
-  background-color: #fffddf;
+  margin-top: 30px; 
+}
+
+.inUserFolder {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
 }

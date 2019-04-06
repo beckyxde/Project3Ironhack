@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 export default class CollectionFolder extends Component {
   render() {
@@ -8,11 +9,30 @@ export default class CollectionFolder extends Component {
           console.log("coleeeeeectionsdata", collection)
           return (
             <div>
-              <div className="singleFolder" key={i}>
-                {collection.name}
+              <div className="favouritesFolder">
+                <Link to="InUserFolder">
+                  <img className="newspaper-icon" src="img/folderfolderfolder.png" alt="I am a newspaper icon"></img>
+                </Link>
+                <div>Favourites</div>
               </div>
-              <p>I am a Folder - Click me to get inside</p>
+
+
+
+              <div className="favouritesFolder" key={i}>
+                <Link to="InUserFolder"><img className="newspaper-icon" src="img/folderfolderfolder.png" alt="I am a newspaper icon"></img>
+                </Link>
+                <div>{collection.name}</div>
+              </div>
+
+
+
+              <div className="favouritesFolder">
+                <img className="newspaper-icon" src="img/folderfolder.png" alt="I am a newspaper icon"></img>
+                <div>Add Collection 😃</div>
+              </div>
             </div>
+
+
           )
         })
         }
