@@ -256,7 +256,7 @@ button:hover {
 .footer-contents {
   background-color: #ffffff;
   padding: 10px 18%;
-  height: 250px;
+  height: 300px;
 }
 
 .imprint {
@@ -286,22 +286,41 @@ button:hover {
   height: -webkit-fill-available;
 }
 
-.favouritesFolder {
-  display: inline-block;
+
+.folder-group {
+  margin-top: 30px; 
+  padding: 20px;
+  background-color: #fffddf;
+  border-radius: 50px;
+  border: 2px solid rgb(255, 227, 223);
 }
 
+.favouritesFolder {
+  display: inline-block;
+
+  background-color: white;
+  border: 2px solid rgb(255, 227, 223);
+  width: 15%;
+  min-width: 200px;
+  min-height: 200px;
+  margin: 1%;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px RGBA(140, 140, 140, 0.3);
+}
+
+.favouritesFolder:hover {
+  box-shadow: 0px 0px 10px RGBA(140, 140, 140, 0.7);
+
+}
 
 .newspaper-icon:hover {
   background-color: #fff !important;
 }
 
 .newspaper-icon {
-  width: 200px;
-  padding: 10px 30px 10px 30px;
-}
-
-.folder-group {
-  margin-top: 30px; 
+  width: 150px;
+  padding: 10px 0px 10px 0px;
 }
 
 .inUserFolder {
