@@ -61,6 +61,7 @@ a:hover {
 
 p {
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .dropdown-basic-button {
@@ -150,14 +151,15 @@ button:hover {
 
 .auth-body {
   display: block;
+  width: 600px;
   background-color: #fffddf;
   border: 2px solid rgb(255, 227, 223);
   border-radius: 30px;
   padding: 20px;
   position: absolute;
   transform: translateY(-50%) translateX(-50%);
-  top: 50%; 
-  left: 50%; 
+  top: 50%;
+  left: 50%;
 }
 
 .signupDiv {
@@ -181,7 +183,7 @@ button:hover {
   height: 35px;
 }
 
-.App-content:not(Footer) {
+.App-content:not(footer) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -253,7 +255,7 @@ button:hover {
 .footer-contents {
   background-color: #ffffff;
   padding: 10px 18%;
-  height: 250px;
+  height: 300px;
 }
 
 .imprint {
@@ -287,16 +289,20 @@ button:hover {
   display: inline-block;
 }
 
-
 .newspaper-icon:hover {
   background-color: #fff !important;
 }
 
 .newspaper-icon {
   width: 200px;
-  padding: 30px 30px 10px 30px;
+  padding: 10px 30px 10px 30px;
 }
 
 .folder-group {
-  background-color: #fffddf;
+  margin-top: 30px;
+}
+
+.inUserFolder {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
 }

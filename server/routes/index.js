@@ -131,7 +131,7 @@ router.post("/user/collections", (req, res, next) => {
 
 router.get("/user/collections", (req, res, next) => {
   res.json([
-    { name: "ruby", articles: [123, 234, 345] }
+    { name: "Save for later", articles: [123, 234, 345] }
   ])
   // res.json(req.user.collections)
 });

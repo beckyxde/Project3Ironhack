@@ -19,7 +19,7 @@ class App extends Component {
             <Route path="/" exact component={LandingPage} />
             <Route path="/Home" exact component={Home} />
             <Route path="/Collections" exact component={Collections} />
-            <Route path="/UserFolder" exact component={InUserFolder} />
+            <Route path="/InUserFolder" exact component={InUserFolder} />
           </Switch>
         </div>
 
